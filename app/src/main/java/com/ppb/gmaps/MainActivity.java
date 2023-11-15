@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -52,17 +53,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .compassEnabled(false)
                 .rotateGesturesEnabled(false)
                 .tiltGesturesEnabled(false);
+
+        mMap.getUiSettings().setScrollGesturesEnabled(true);
     }
 
     View.OnClickListener op = new View.OnClickListener() {
 
         @Override
         public void onClick(View view) {
-            if (view.getId()){
-                R.id.idGo:sembunyikanKeyBoard(view);
-                    gotoLokasi();
-                }
+            if (view.getId() == R.id.idGo) {
+                sembunyikanKeyBoard(view);
+                gotoLokasi();
             }
+        }
     };
 
     private void gotoLokasi()  {
